@@ -1,31 +1,35 @@
 package com.iandavis.android.personaltrainer;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
     public final static String EXTRA_LOGOFF_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(Login.EXTRA_MESSAGE);
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
+        setFragment(R.id.customerListFragment);
 
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main_menu);
-        layout.addView(textView);
+    }
+
+    protected void setFragment(int fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(android.R.id.content, fragmentManager.findFragmentById(fragment));
+        ft.commit();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

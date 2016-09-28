@@ -17,7 +17,6 @@ public class Login extends AppCompatActivity {
 
     public void login(View view){
         Intent intent = new Intent(this, MainMenu.class);
-        intent.putExtra(EXTRA_MESSAGE, getString(R.string.login_success));
         startActivity(intent);
     }
 }
