@@ -10,12 +10,12 @@ import android.widget.EditText;
 public class Login extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public Button loginButton;
-    public String correctUsername = getString(R.string.username);
-    public String correctPassword = getString(R.string.password);
     public EditText usernameInput;
     public EditText passwordInput;
     public String username;
     public String password;
+    public String correctPassword;
+    public String correctUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,8 @@ public class Login extends AppCompatActivity {
                 passwordInput = (EditText) findViewById(R.id.passwordInput);
                 username = usernameInput.getText().toString();
                 password = passwordInput.getText().toString();
+                correctUsername = getString(R.string.username);
+                correctPassword = getString(R.string.password);
 
                 Intent intent = new Intent(Login.this, MainMenu.class);
 

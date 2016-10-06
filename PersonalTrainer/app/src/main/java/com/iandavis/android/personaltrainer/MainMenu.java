@@ -2,6 +2,7 @@ package com.iandavis.android.personaltrainer;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
-public class MainMenu extends AppCompatActivity {
-    public final static String EXTRA_LOGOFF_MESSAGE = "com.example.myfirstapp.MESSAGE";
-    Fragment fragment;
+public class MainMenu extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
